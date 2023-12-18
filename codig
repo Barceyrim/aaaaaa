@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>É um Coala?</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #pergunta {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #resposta {
+            margin-top: 20px;
+            font-size: 20px;
+            display: none;
+        }
+
+        #coala {
+            font-size: 24px;
+            margin-top: 20px;
+            white-space: pre;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="pergunta">TENÃ É UM COALA?</p>
+    <button onclick="responder('sim')">SIM</button>
+    <button onclick="responder('nao')">NÃO</button>
+    <button onclick="responder('talvez')">TALVEZ</button>
+
+    <div id="resposta"></div>
+    <pre id="coala">
+    /\/\
+   ( o.o )
+    (")(")
+    </pre>
+
+    <script>
+        function responder(resposta) {
+            var respostaElement = document.getElementById('resposta');
+            var coalaElement = document.getElementById('coala');
+
+            if (resposta === 'sim') {
+                respostaElement.textContent = 'EU SABIA O TEMPO TODO HAHAHAHAHAH';
+                coalaElement.textContent = '';
+            } else if (resposta === 'nao') {
+                respostaElement.textContent = 'Tem certeza?';
+                coalaElement.textContent = '';
+            } else if (resposta === 'talvez') {
+                respostaElement.textContent = '';
+                coalaElement.textContent = `
+                /\\/\\
+               ( o.o )
+                (")(")
+                `;
+            }
+
+            respostaElement.style.display = 'block';
+            coalaElement.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
